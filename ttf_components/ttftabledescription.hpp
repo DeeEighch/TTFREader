@@ -19,6 +19,14 @@ public:
 
     };
 
+    typedef struct {
+        char name[4];
+        uint32_t crc;
+        uint32_t offset;
+        uint32_t length;
+
+    } TTFTDESC;
+
     TTFTableDescription();
     TTFTableDescription(std::vector<uint8_t> data);
 
@@ -78,6 +86,7 @@ public:
         return m_data;
     }
 
+    TTFTDESC desc;
 private:
     std::vector<uint8_t> m_data;
 };

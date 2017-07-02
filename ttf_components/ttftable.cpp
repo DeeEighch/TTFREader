@@ -63,7 +63,7 @@ std::string TTFTable::component_string()
 
 std::string TTFTable::crc_string()
 {
-    uint32_t crc = calc_crc(reinterpret_cast<uint32_t*>(m_data.data()), m_description.length()-1);
+    uint32_t crc = calc_crc(reinterpret_cast<uint32_t*>(m_data.data()), m_description.length());
     std::ostringstream out;
     out << std::hex << std::setw(sizeof(uint32_t) * 2) << std::setfill('0')
         << crc << " "

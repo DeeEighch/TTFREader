@@ -11,15 +11,16 @@ int main(int argc, char *argv[])
 
     TTFFileHeader head = file.header();
     std::vector<TTFTable> t_desc = file.tables();
-    HEX_COUT(head.data(), head.data().size())
+    //HEX_COUT(head.data(), head.data().size())
 
     cout << head.component_string();
 
     for (TTFTable& table: file.tables()){
         cout //<< "============================" << endl
-             << table.component_string();
+                << table.description().desc.name
+             << table.component_string()
              //<< "============================" << endl;
-             //<< table.hex_string() << endl;
+             << table.hex_string() << endl;
     }
 
     return 0;
